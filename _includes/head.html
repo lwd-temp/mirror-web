@@ -30,19 +30,8 @@
 
 <title>{{ page_title }}</title>
 {% unless include.nostyle %}
-<link rel="stylesheet" href="/static/css/bootstrap.min.css?{{ site.data['hash'] }}">
-<link rel="stylesheet" href="/static/css/bootstrap-select.min.css?{{ site.data['hash'] }}">
-<link rel="stylesheet" href="/static/css/style.css?{{ site.data['hash'] }}">
-<script src="/static/js/jquery.min.js?{{ site.data['hash'] }}"></script>
-<script src="/static/js/bootstrap.min.js?{{ site.data['hash'] }}"></script>
-<script src="/static/js/bootstrap-select.min.js?{{ site.data['hash'] }}"></script>
-{% unless page.legacy %}
-<script src="/static/js/vue.min.js?{{ site.data['hash'] }}"></script>
-<script src="/static/js/timeago.min.js?{{ site.data['hash'] }}"></script>
-{% endunless %}
-<script src="/static/js/markup.min.js?{{ site.data['hash'] }}"></script>
-<script src="/static/js/webfont.js?{{ site.data['hash'] }}"></script>
-<script src="/static/js/thuhidden.js?{{ site.data['hash'] }}"></script>
+{% include vite_script.html %}
+<link rel="stylesheet" href="{% vite_asset_path bs3-polyfill.scss %}" media="screen" integrity="sha256-OnlyforlegacybrowsersAAAAAAAAAAAAAAAAAAAAAA=" />
 {% if page.legacy %}
 <style>
 .container {
